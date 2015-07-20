@@ -11,24 +11,50 @@
 </style>
 <body id="body">
 
-<form action="checkAnswer" method="post">
+<form action="checkAnswer"  onsubmit="checkAnswer()" method="post">
     question:
     <br> <input type="text" id="question" readonly ><br>
     possably answers,mark your answer
     <br>
     a. <input type="text" name="a" id="a" readonly>
-    <input type="radio" name="correctAnswer" value="a" checked>
+    <input type="radio" id="radioButtonA" name="correctAnswer" value="a" checked>
     b. <input type="text" name="b" id="b" readonly>
-    <input type="radio" name="correctAnswer" value="b">
+    <input type="radio" id="radioButtonB" name="correctAnswer" value="b">
     <br>
     c. <input type="text" name="c" id="c" readonly>
-    <input type="radio" name="correctAnswer" value="c">
+    <input type="radio" id="radioButtonC" name="correctAnswer" value="c">
     d. <input type="text" name="d" id="d" readonly>
-    <input type="radio" name="correctAnswer" value="d">
+    <input type="radio" id="radioButtonD" name="correctAnswer" value="d">
     <br>
     <input type="submit" value="Submit">
 </form>
 <script>
+    var correctAnswer;
+
+    function checkAnswer() {
+        var buttons = [];
+        var radioButtonA = document.getElementById("radioButtonA");
+        var radioButtonB = document.getElementById("radioButtonB");
+        var radioButtonC = document.getElementById("radioButtonC");
+        var radioButtonD = document.getElementById("radioButtonD");
+        buttons.push(radioButtonA);
+        buttons.push(radioButtonB);
+        buttons.push(radioButtonC);
+        buttons.push(radioButtonD);
+        var answer = "";
+        for(var i = 0; i < 4; i++){
+            if(buttons[i].checked){
+                answer = buttons[i].value;
+                break;
+            }
+        }
+        if(answer == correctAnswer){
+            alert("Good job");
+        }else{
+            alert("bad guess");
+        }
+
+    }
     function fillAnswerPage() {
 
         var xmlhttp = new XMLHttpRequest();
@@ -44,6 +70,7 @@
                 var d = document.getElementById("d");
 
                 var questObj = obj.quest;
+                correctAnswer = questObj.correctAnswer;
                 question.value = questObj.question.toString();
                 a.value = questObj.a;
                 b.value = questObj.b;
