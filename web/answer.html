@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Football Genius</title>
+</head>
+<style>
+    html, body {
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+</style>
+<body id="body">
+
+<form action="checkAnswer" method="post">
+    question:
+    <br> <input type="text" id="question" readonly ><br>
+    possably answers,mark your answer
+    <br>
+    a. <input type="text" name="a" id="a" readonly>
+    <input type="radio" name="correctAnswer" value="a" checked>
+    b. <input type="text" name="b" id="b" readonly>
+    <input type="radio" name="correctAnswer" value="b">
+    <br>
+    c. <input type="text" name="c" id="c" readonly>
+    <input type="radio" name="correctAnswer" value="c">
+    d. <input type="text" name="d" id="d" readonly>
+    <input type="radio" name="correctAnswer" value="d">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+<script>
+    function fillAnswerPage() {
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var obj = JSON.parse(xmlhttp.responseText);
+                var body = document.getElementById("body");
+                body.background = obj.backGroundPic;
+                var question = document.getElementById("question");
+                var a = document.getElementById("a");
+                var b = document.getElementById("b");
+                var c = document.getElementById("c");
+                var d = document.getElementById("d");
+
+                var questObj = obj.quest;
+                question.value = questObj.question.toString();
+                a.value = questObj.a;
+                b.value = questObj.b;
+                c.value = questObj.c;
+                d.value = questObj.d;
+            }
+        }
+
+        xmlhttp.open("GET", "fillAnswerPage", true);
+
+        xmlhttp.send();
+
+    }
+    fillAnswerPage();
+</script>
+</body>
+</html>

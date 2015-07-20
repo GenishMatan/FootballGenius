@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Top Ten</title>
+</head>
+
+<style>
+    html, body {
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+</style>
+<font color="yellow">
+<body id="body">
+<form action="/web/main.html">
+    <input type="submit" value="back" >
+</form>
+<ol id="orderList">
+
+</ol>
+</body>
+
+</font>
+</html>
+<script>
+    function topTen(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var obj = JSON.parse(xmlhttp.responseText);
+                var orderList = document.getElementById("orderList");
+                var body = document.getElementById("body");
+                body.background = obj.backGroundPic;
+                for(var i = 0; i < obj.topTen.length;i++){
+                    var li = document.createElement("li");
+                    li.innerHTML = obj.topTen[i].username+"\tScore: " + obj.topTen[i].score + "\tTeam: " + obj.topTen[i].team;
+                    orderList.appendChild(li);
+                }
+            }
+        }
+        xmlhttp.open("GET", "fillTopTen", true);
+        xmlhttp.send();
+    }
+    topTen();
+</script>

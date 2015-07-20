@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Football Genius</title>
+</head>
+<style>
+    html, body {
+        background-repeat:no-repeat;
+        background-size:cover;
+        font-size: x-large;
+    }
+</style>
+<body background="/public/images/background.jpg">
+<h1>Football Genius </h1>
+<form action="/web/main.html">
+    <input type="submit" value="back" >
+</form>
+<div id="Sign In">
+    <h1>Sign In</h1>
+    <form action="sign" id="SignInfoForm" method="post">
+        <font color="red">The user name is already in used, please choose another</font>
+        <br>
+        <br>
+        User name:<br>
+        <input type="text" name="userName" id="SignUserName" required>
+        <br>
+        Enter new password:<br>
+        <input type="password" name="password" id="SignPassword" required>
+        <br>
+        favourite club:<br>
+        <select form="SignInfoForm" name="selectedTeam">
+            <option value="chelsea">Chelsea F.C</option>
+            <option value="realMadrid">real Madrid</option>
+            <option value="manUtd">Manchester United</option>
+            <option value="barcelona">Barcelona</option>
+            <option value="juventus">Juventus</option>
+        </select>
+        <br>
+        <input type="submit"  value ="Connect">
+    </form>
+</div>
+</body>
+</html>
