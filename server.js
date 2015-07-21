@@ -15,7 +15,7 @@ var obj = JSON.parse(fs.readFileSync('users.json', 'utf8'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-var server = app.listen(process.env.PORT || 8080, function () {
+var server = app.listen(process.env.PORT || 80, function () {
     var host = server.address().address;
     var port = server.address().port;
 
