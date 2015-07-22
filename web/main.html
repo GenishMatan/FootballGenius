@@ -11,7 +11,7 @@
     </style>
 
 <body id="body">
-<font color="#7fff00" style="font-size: x-large">
+<font color="black" style="font-size: x-large">
 <div id="top"  >
     <form action="topTen" method="get">
         <input type="submit" value="top 10">
@@ -20,10 +20,8 @@
     <form action="reConnect">
         <input type="submit" value="connect as a new user" >
     </form>
-
     <h2 id="text"></h2>
 </div>
-<br>
 <div id="middle">
     <form action="newQuestion" method="post">
         enter a question:
@@ -40,12 +38,13 @@
         d. <input type="text" name="d" required>
         <input type="radio" name="correctAnswer" value="d">
         <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Publish Question">
     </form>
 </div>
 <br>
 
 <div id="bottom">
+    <h2>Questions List</h2>
     <form action="answerQuestion" id="questionsform" method="post">
         <input type="submit"  value="Answer">
     </form>

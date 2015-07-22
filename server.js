@@ -189,7 +189,7 @@ app.get("/web/manUtd.jpg",function(req,res){
     res.sendFile(__dirname+"/public/images/manUtd.jpg");
 });
 app.get("/web/barcelona.jpg",function(req,res){
-    res.sendFile(__dirname+"/public/images/Barcelona.jpg");
+    res.sendFile(__dirname+"/public/images/barcelona.jpg");
 });
 app.get("/web/realMadrid.jpg",function(req,res){
     res.sendFile(__dirname+"/public/images/realMadrid.jpg");
