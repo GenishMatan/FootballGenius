@@ -152,6 +152,7 @@ app.use("/web/fillQuestList",function(req,res){
 });
 app.use("/web/reConnect",function(req,res){
     res.clearCookie('username');
+    res.clearCookie('team');
     res.redirect("/web/main.html");
 });
 
@@ -168,15 +169,16 @@ app.use("/web/main.html",function(req,res){
     }
 });
 
-app.get("/web/partners.html",function(req,res){
+app.get("/partners.html",function(req,res){
     res.sendFile(__dirname+"/web/partners.html");
 });
-app.get("/web/heroku.html",function(req,res){
+app.get("/help.html",function(req,res){
+    res.sendFile(__dirname+"/web/help.html");
+});
+app.get("/heroku.html",function(req,res){
     res.sendFile(__dirname+"/web/heroku.html");
 });
-app.get("/http.js",function(req,res){
-    res.sendFile(__dirname+"/http.js");
-});
+
 app.get("/public/images/background.jpg",function(req,res){
     res.sendFile(__dirname+"/public/images/background.jpg");
 });
